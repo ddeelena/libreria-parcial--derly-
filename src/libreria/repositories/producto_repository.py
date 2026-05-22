@@ -1,0 +1,2 @@
+class ProductoRepository:
+    pass
