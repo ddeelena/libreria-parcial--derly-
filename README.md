@@ -45,5 +45,24 @@ Para la Regla 3, una pregunta concreta que le harías al administrador antes de 
 Justificación:
 Esto ayudaría a evitar diferencias por calculos decimales en iva y descuentos 
 
+CASOS DE PRUEBA 
+
+```
+ID | Regla | Descripción | Precondición | Datos de entrada | Pasos | Resultado esperado | Tipo
+```
+
+Los tipos son Positivo, Negativo o Borde. Los 8 casos deben distribuirse entre las tres reglas e incluir al menos dos de borde y al menos dos negativos.
+
+| ID | Regla | Descripción | Precondición | Datos de entrada | Pasos | Resultado esperado | Tipo |
+
+
+| CP-01 | Regla 1 | Crear producto con precio base válido | Sistema disponible | Nombre: "Libro A", Precio base: 50000 | 1. Ingresar nombre 2. Ingresar precio 3. Guardar producto | El producto se crea correctamente | Positivo |
+| CP-02 | Regla 1 | Intentar crear producto con precio base igual a 0 | Sistema disponible | Nombre: "Libro B", Precio base: 0 | 1. Ingresar nombre 2. Ingresar precio 0 3. Guardar producto | El sistema rechaza el registro y muestra mensaje de error | Negativo |
+| CP-03 | Regla 1 | Intentar crear producto con precio base negativo | Sistema disponible | Nombre: "Libro C", Precio base: -1000 | 1. Ingresar nombre 2. Ingresar precio negativo 3. Guardar producto | El sistema rechaza el registro y muestra mensaje claro | Negativo |
+| CP-04 | Regla 2 | Aplicar descuento válido del 20% | Producto creado correctamente | Precio base: 50000, Descuento: 20% | 1. Seleccionar producto 2. Aplicar descuento 20% | El descuento se aplica correctamente | Positivo |
+| CP-05 | Regla 2 | Aplicar descuento límite de 0% | Producto creado correctamente | Precio base: 50000, Descuento: 0% | 1. Seleccionar producto 2. Aplicar descuento 0% | El sistema acepta el descuento y mantiene el precio original | Borde |
+| CP-06 | Regla 2 | Aplicar descuento límite de 40% | Producto creado correctamente | Precio base: 50000, Descuento: 40% | 1. Seleccionar producto 2. Aplicar descuento 40% | El sistema acepta el descuento correctamente | Borde |
+| CP-07 | Regla 2 | Intentar aplicar descuento mayor al permitido | Producto creado correctamente | Precio base: 50000, Descuento: 45% | 1. Seleccionar producto 2. Aplicar descuento 45% | El sistema rechaza el descuento y muestra mensaje de error | Negativo |
+| CP-08 | Regla 3 | Calcular precio final con descuento e IVA | Producto válido creado | Precio base: 100000, Descuento: 10% | 1. Aplicar descuento 10% 2. Calcular IVA del 19% | El precio final calculado es 107100 | Positivo |
 
 
