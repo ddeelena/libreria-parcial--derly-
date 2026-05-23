@@ -1,2 +1,2 @@
 class ValorNegativoException(Exception):
-    pass
+    """El precio no puede ser negativo."""

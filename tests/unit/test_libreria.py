@@ -2,7 +2,8 @@ import pytest
 
 
 from libreria.services.producto_service import ProductoService
-from libreria.exceptions import  (PrecioBaseCeroException, ValorNegativoException)
+from libreria.exceptions.precio_base_cero import  PrecioBaseCeroException
+from libreria.exceptions.valor_negativo import ValorNegativoException
 
 @pytest.fixture
 def producto_service():

@@ -1,2 +1,2 @@
 class PrecioBaseCeroException(Exception):
-    pass
+    """El precio base debe ser mayor que cero."""
