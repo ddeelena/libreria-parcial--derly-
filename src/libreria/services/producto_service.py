@@ -22,9 +22,21 @@ class ProductoService:
         return self.repository.obtener_producto_por_nombre(nombre)
     
     def aplicar_descuento(self, producto, descuento):
-        if descuento < 0:
-            raise ValorNegativoException("El descuento no puede ser negativo.")
-        if descuento > 40:
-            raise DescuentoMayorException("El descuento no puede ser mayor al 40%")
+
+        self.validar_descuento(descuento)
+
         producto.descuento = descuento
         producto.precio_final = producto.calcular_precio_final()
+
+
+    def validar_descuento(self, descuento):
+
+        if descuento < 0:
+            raise ValorNegativoException(
+                "El descuento no puede ser negativo."
+            )
+
+        if descuento > 40:
+            raise DescuentoMayorException(
+                "El descuento no puede ser mayor al 40%"
+            )
