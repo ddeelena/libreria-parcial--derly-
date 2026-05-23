@@ -10,5 +10,5 @@ class Producto:
     
     def calcular_precio_final(self):
         if self.descuento > 0:
-            return self.precio * (self.descuento / 100)
+            return self.precio * (1- self.descuento / 100)
         return self.precio
